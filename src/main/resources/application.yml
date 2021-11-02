@@ -1,0 +1,53 @@
+
+# Server Configuration
+server:
+  port: 8082
+  error:
+    include-stacktrace: always
+  compression:
+    enabled: true
+  address: localhost
+
+# Spring Configuration
+spring:
+  application:
+    name: esurvey-service
+
+  # Database Configuration
+  datasource:
+    url: jdbc:sqlserver://127.0.0.1:1433;databaseName=esurvey
+    username: sa
+    password: arafinN123456
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+    # Hikari Configuration
+    hikari:
+      minimum-idle: 1
+      maximum-pool-size: 15
+      idle-timeout: 30000
+      pool-name: SpringBootJPAHikariCP
+      max-lifetime: 2000000
+      connection-timeout: 30000
+
+  # JPA Configuration
+  jpa:
+    # Properties
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServer2012Dialect
+
+  # Servlet Configuration
+  servlet:
+    multipart:
+      enabled: true
+      location: /tmp
+      max-file-size: 512MB
+      max-request-size: 512MB
+      resolve-lazily: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+

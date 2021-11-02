@@ -1,0 +1,19 @@
+package com.storeprocedure.resource;
+
+import com.storeprocedure.service.EmployeeService;
+import io.swagger.annotations.Api;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+
+@RestController
+@RequiredArgsConstructor
+@Api(tags = "Employee Data")
+@RequestMapping(
+        "/api/v1/employee"
+)
+public class EmployeeResource {
+
+    private final EmployeeService employeeService;
+}
